@@ -5,14 +5,15 @@ import org.junit.jupiter.api.Test;
 class StosTest1 {
     @Test
     void dodaj() {
-        Stos stos = new Stos(4);
+        Stos stos = new Stos(5);
         stos.dodaj(10);
         stos.dodaj(20);
         stos.dodaj(30);
         stos.dodaj(40);
-        int[] expected = {10, 20, 30, 40};
-        int[] recived = stos.getStos();
-        Assertions.assertNotEquals(expected, recived);
+        stos.dodaj(50);
+        int[] expected = {10, 20, 30, 40,50};
+        int[] recived = stos.tablica;
+        Assertions.assertArrayEquals(expected,recived);
     }
 
     @Test
@@ -25,7 +26,7 @@ class StosTest1 {
         stos.dodaj(50);
         stos.dodaj(60);
         int expected = 60;
-        int recived = stos.dodaj(60);
+        int recived = stos.usun();
         Assertions.assertEquals(expected, recived);
     }
 
@@ -53,6 +54,7 @@ class StosTest1 {
         stos.dodaj(50);
         stos.dodaj(60);
         Assertions.assertFalse(stos.jestPusty());
+
     }
 
     @Test
